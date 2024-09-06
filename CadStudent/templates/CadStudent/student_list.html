@@ -1,0 +1,41 @@
+{% extends 'CadStudent/base.html' %}
+{% block content %}
+
+<h1 style="text-align: center;">Lista de Estudantes</h1>
+
+<form method="GET" action=".">
+    <input type="text" name="q" placeholder="Buscar..." value="{{ request.GET.q }}">
+    <button type="submit">Buscar</button>
+</form>
+
+{% if students %}
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nome</th>
+            <th scope="col">CPF</th>
+            <th scope="col">Detalhes</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for student in students %}
+        <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>{{ student.name }}</td>
+            <td>{{ student.cpf }}</td>
+            <td><a href="{% url 'student_detail' student.pk %}">Ver detalhes</a></td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="4">Nenhum estudante encontrado.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>Nenhum estudante encontrado.</p>
+{% endif %}
+
+{% endblock %}
+
