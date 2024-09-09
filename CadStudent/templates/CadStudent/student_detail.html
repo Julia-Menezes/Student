@@ -7,6 +7,7 @@
 
 <link rel="stylesheet" href="{% static 'CadStudent/css/detail.css' %}">
 
+
 <div class="student-details">
   <h2>{{ student.name }}</h2>
   <div class="student-photo">
@@ -30,7 +31,7 @@
       </tr>
       <tr>
         <th>Data de Nascimento:</th>
-        <td>{{ student.birth_date }}</td>
+        <td>{{ student.birth_date|date:"d/m/Y" }}</td>
       </tr>
       <tr>
         <th>Período do Curso:</th>

@@ -24,7 +24,7 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=100)),
                 ('age', models.IntegerField()),
-                ('cpf', models.CharField(max_length=11, unique=True)),
+                ('cpf', models.CharField(max_length=15, unique=True)),
                 ('birth_date', models.DateField(max_length=12)),
                 ('course_period', models.CharField(max_length=50)),
                 ('photo', models.ImageField(blank=True, null=True, upload_to='student_photos/')),
